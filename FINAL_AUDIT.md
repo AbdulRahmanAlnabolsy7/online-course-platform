@@ -36,7 +36,7 @@ Docker is provided but has not been launched on this machine because Docker is n
 
 MongoDB transactions are not required for standalone development. Cascading cleanup spans multiple operations; process failure can leave related records requiring reconciliation. Rating mutations are serialized per course inside a single Node process. Multiple API instances require coordinated updates/transactions and a shared rate-limit store. Paid enrollment, refresh/revocation, password reset and email verification are not part of this assignment.
 
-`npm run dev:demo` uses a temporary MongoDB; normal `npm run dev` uses the configured persistent MongoDB. `.env` contains a generated local secret and is ignored by Git. The source repository is https://github.com/AbdulRahmanAlnabolsy7/online-course-platform with private visibility. Source, lockfiles, tests and documentation are tracked; local secrets, installed dependencies, build output and test artifacts are excluded.
+`npm run dev:demo` uses a temporary MongoDB; normal `npm run dev` uses the configured persistent MongoDB. `.env` contains a generated local secret and is ignored by Git. The source repository is https://github.com/AbdulRahmanAlnabolsy7/online-course-platform with public visibility, as requested by the owner. Source, lockfiles, tests and documentation are tracked; local secrets, installed dependencies, build output and test artifacts are excluded.
 
 ## Frontend integration audit
 
