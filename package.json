@@ -1,0 +1,36 @@
+{
+  "name": "online-course-platform-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Online learning REST API",
+  "main": "src/server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "dev:demo": "node scripts/dev-demo.js",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch --runInBand",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.1",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "mongodb-memory-server": "^10.2.1",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  },
+  "jest": { "testEnvironment": "node", "testTimeout": 120000, "testMatch": ["**/tests/**/*.test.js"] },
+  "license": "MIT"
+}

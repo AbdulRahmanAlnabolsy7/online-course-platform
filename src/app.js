@@ -1,0 +1,25 @@
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const mongoose = require('mongoose');
+const env = require('./config/env');
+const { apiLimiter } = require('./middleware/rateLimit.middleware');
+const { safeInput } = require('./middleware/validation.middleware');
+const ApiError = require('./utils/ApiError');
+const app = express();
+app.disable('x-powered-by');
+app.use(helmet());
+app.use(cors({ origin: env.CORS_ORIGIN.split(',').map(s => s.trim()) }));
+app.use(express.json({ limit: '100kb' }));
+app.use(safeInput);
+app.get('/health', (req, res) => {
+  const ready = mongoose.connection.readyState === 1;
+  res.status(ready ? 200 : 503).json({ success: ready, message: ready ? 'API ready' : 'Database unavailable' });
+});
+app.get('/api-docs.json', (req, res) => res.json(require('./docs/swagger')));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('./docs/swagger')));
+app.use('/api/v1', apiLimiter, require('./routes'));
+app.use((req, res, next) => next(new ApiError(404, 'Route not found')));
+app.use(require('./middleware/error.middleware'));
+module.exports = app;
