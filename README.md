@@ -1,5 +1,7 @@
 # Online Course Platform API
 
+Source repository: [online-course-platform](https://github.com/AbdulRahmanAlnabolsy7/online-course-platform). The repository is private; sign in with the owner account or request collaborator access to view it.
+
 A university/ITI online learning platform with a React frontend and an Express/MongoDB REST API. Instructors manage courses and ordered lessons; students enroll, discuss lessons, rate courses, and track completion. The backend uses CommonJS JavaScript; the frontend uses JavaScript ES modules.
 
 ## Features and stack
