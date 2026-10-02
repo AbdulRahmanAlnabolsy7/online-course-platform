@@ -1,0 +1,9 @@
+{
+ "version":"2.0.0",
+ "tasks":[
+  {"label":"Run backend demo","type":"npm","script":"dev:demo","isBackground":true,"problemMatcher":[],"presentation":{"reveal":"always","panel":"dedicated"}},
+  {"label":"Run frontend","type":"npm","script":"dev","path":"frontend","isBackground":true,"problemMatcher":[],"presentation":{"reveal":"always","panel":"dedicated"}},
+  {"label":"Run full platform","dependsOn":["Run backend demo","Run frontend"],"dependsOrder":"parallel","problemMatcher":[]},
+  {"label":"Build frontend","type":"npm","script":"build","path":"frontend","group":{"kind":"build","isDefault":true},"problemMatcher":[]}
+ ]
+}
